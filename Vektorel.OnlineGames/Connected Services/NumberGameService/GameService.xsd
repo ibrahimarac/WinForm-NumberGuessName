@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:60433/GameService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Vektorel.Model" />
+  <xs:element name="SignUp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SignUpResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Vektorel.Model" minOccurs="0" name="SignUpResult" nillable="true" type="q1:MessageInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogIn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogInResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Vektorel.Model" minOccurs="0" name="LogInResult" nillable="true" type="q2:MessageInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRoom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="roomName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRoomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Vektorel.Model" minOccurs="0" name="CreateRoomResult" nillable="true" type="q3:MessageInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEmptyRooms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Vektorel.Model" minOccurs="0" name="currentUser" nillable="true" type="q4:UserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEmptyRoomsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Vektorel.Model" minOccurs="0" name="GetAllEmptyRoomsResult" nillable="true" type="q5:ArrayOfRoomInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPartnerForUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="roomName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Vektorel.Model" minOccurs="0" name="user" nillable="true" type="q6:UserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPartnerForUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Vektorel.Model" minOccurs="0" name="GetPartnerForUserResult" nillable="true" type="q7:MessageInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JoinRoom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="roomName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Vektorel.Model" minOccurs="0" name="user" nillable="true" type="q8:UserInfo" />
+        <xs:element minOccurs="0" name="userNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JoinRoomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Vektorel.Model" minOccurs="0" name="JoinRoomResult" nillable="true" type="q9:MessageInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LeaveRoom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="roomName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Vektorel.Model" minOccurs="0" name="user" nillable="true" type="q10:UserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LeaveRoomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Vektorel.Model" minOccurs="0" name="LeaveRoomResult" nillable="true" type="q11:MessageInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserActivityTest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="roomName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Vektorel.Model" minOccurs="0" name="partnerUser" nillable="true" type="q12:UserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserActivityTestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserActivityTestResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendAttack">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="roomName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Vektorel.Model" minOccurs="0" name="user" nillable="true" type="q13:UserInfo" />
+        <xs:element minOccurs="0" name="guess" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendAttackResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Vektorel.Model" minOccurs="0" name="SendAttackResult" nillable="true" type="q14:AttackInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserOrderForRoom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="roomName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserOrderForRoomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Vektorel.Model" minOccurs="0" name="GetUserOrderForRoomResult" nillable="true" type="q15:UserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastAttackForPartner">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Vektorel.Model" minOccurs="0" name="partnerUser" nillable="true" type="q16:UserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastAttackForPartnerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Vektorel.Model" minOccurs="0" name="GetLastAttackForPartnerResult" nillable="true" type="q17:AttackInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePlayerOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="roomName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePlayerOrderResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GameService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:60433/GameService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:60433/GameService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:60433/GameService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Vektorel.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGameService_SignUp_InputMessage">
+    <wsdl:part name="parameters" element="tns:SignUp" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_SignUp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SignUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_LogIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogIn" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_LogIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogInResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_CreateRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRoom" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_CreateRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_GetAllEmptyRooms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmptyRooms" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_GetAllEmptyRooms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEmptyRoomsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_GetPartnerForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPartnerForUser" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_GetPartnerForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPartnerForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_JoinRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinRoom" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_JoinRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JoinRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_LeaveRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveRoom" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_LeaveRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_UserActivityTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserActivityTest" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_UserActivityTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserActivityTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_SendAttack_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendAttack" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_SendAttack_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendAttackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_GetUserOrderForRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserOrderForRoom" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_GetUserOrderForRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserOrderForRoomResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_GetLastAttackForPartner_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastAttackForPartner" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_GetLastAttackForPartner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastAttackForPartnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_ChangePlayerOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePlayerOrder" />
+  </wsdl:message>
+  <wsdl:message name="IGameService_ChangePlayerOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePlayerOrderResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IGameService">
+    <wsdl:operation name="SignUp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/SignUp" message="tns:IGameService_SignUp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/SignUpResponse" message="tns:IGameService_SignUp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/LogIn" message="tns:IGameService_LogIn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/LogInResponse" message="tns:IGameService_LogIn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/CreateRoom" message="tns:IGameService_CreateRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/CreateRoomResponse" message="tns:IGameService_CreateRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmptyRooms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/GetAllEmptyRooms" message="tns:IGameService_GetAllEmptyRooms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/GetAllEmptyRoomsResponse" message="tns:IGameService_GetAllEmptyRooms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartnerForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/GetPartnerForUser" message="tns:IGameService_GetPartnerForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/GetPartnerForUserResponse" message="tns:IGameService_GetPartnerForUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JoinRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/JoinRoom" message="tns:IGameService_JoinRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/JoinRoomResponse" message="tns:IGameService_JoinRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeaveRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/LeaveRoom" message="tns:IGameService_LeaveRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/LeaveRoomResponse" message="tns:IGameService_LeaveRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserActivityTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/UserActivityTest" message="tns:IGameService_UserActivityTest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/UserActivityTestResponse" message="tns:IGameService_UserActivityTest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendAttack">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/SendAttack" message="tns:IGameService_SendAttack_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/SendAttackResponse" message="tns:IGameService_SendAttack_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserOrderForRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/GetUserOrderForRoom" message="tns:IGameService_GetUserOrderForRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/GetUserOrderForRoomResponse" message="tns:IGameService_GetUserOrderForRoom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastAttackForPartner">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/GetLastAttackForPartner" message="tns:IGameService_GetLastAttackForPartner_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/GetLastAttackForPartnerResponse" message="tns:IGameService_GetLastAttackForPartner_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePlayerOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/ChangePlayerOrder" message="tns:IGameService_ChangePlayerOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/ChangePlayerOrderResponse" message="tns:IGameService_ChangePlayerOrder_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="basicHttpEndPoint" type="tns:IGameService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SignUp">
+      <soap:operation soapAction="http://tempuri.org/IGameService/SignUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <soap:operation soapAction="http://tempuri.org/IGameService/LogIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRoom">
+      <soap:operation soapAction="http://tempuri.org/IGameService/CreateRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEmptyRooms">
+      <soap:operation soapAction="http://tempuri.org/IGameService/GetAllEmptyRooms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartnerForUser">
+      <soap:operation soapAction="http://tempuri.org/IGameService/GetPartnerForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JoinRoom">
+      <soap:operation soapAction="http://tempuri.org/IGameService/JoinRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeaveRoom">
+      <soap:operation soapAction="http://tempuri.org/IGameService/LeaveRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserActivityTest">
+      <soap:operation soapAction="http://tempuri.org/IGameService/UserActivityTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAttack">
+      <soap:operation soapAction="http://tempuri.org/IGameService/SendAttack" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserOrderForRoom">
+      <soap:operation soapAction="http://tempuri.org/IGameService/GetUserOrderForRoom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastAttackForPartner">
+      <soap:operation soapAction="http://tempuri.org/IGameService/GetLastAttackForPartner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePlayerOrder">
+      <soap:operation soapAction="http://tempuri.org/IGameService/ChangePlayerOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GameService">
+    <wsdl:port name="basicHttpEndPoint" binding="tns:basicHttpEndPoint">
+      <soap:address location="http://localhost:60433/GameService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

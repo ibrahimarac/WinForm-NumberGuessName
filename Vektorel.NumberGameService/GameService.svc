@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Vektorel.NumberGameService.GameService" CodeBehind="GameService.svc.cs" %>
